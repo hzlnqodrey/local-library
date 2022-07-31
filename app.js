@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 // reference use: https://www.npmjs.com/package/cookie-parser
 app.use(cookieParser()); // Parse Cookie header and populate req.cookies with an object keyed by the cookie names. Optionally you may enable signed cookie support by passing a secret string, which assigns req.secret so it may be used by other middleware.
 
-// STATIC FILES can be seen as PUBLIC
+// express.static middleware, which makes Express serve all the static files in the /public directory in the project root.
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Route
