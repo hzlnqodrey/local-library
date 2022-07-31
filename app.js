@@ -14,8 +14,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// IDK WHAT IT IS #1
-app.use(logger('dev'));
+// reference use: https://www.npmjs.com/package/debug
+app.use(logger('dev')); // A tiny node debugging utility modeled after node core's debugging technique.
 
 // Data sending from FORM
 app.use(express.json());
