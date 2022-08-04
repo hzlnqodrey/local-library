@@ -13,7 +13,14 @@ const app = express()
 // Mongoose Connection Setup
   // Import Connection
   const db = require('./utils/atlas-connection')
-  
+  const atlasPassword = require('./utils/auth/atlas-password')
+  const mongoose = require('mongoose')
+  mongoose.connect(atlasPassword, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+  })
+  const db = mongoose.connection
+  db.on('error', console.error.bind(console, "MongoDB connection error"))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
