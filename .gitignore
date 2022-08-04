@@ -1,1 +1,5 @@
 node_modules
+
+# Connection setting
+auth/*
+auth/atlas-password
