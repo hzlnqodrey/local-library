@@ -36,11 +36,11 @@ const BookSchema = new Schema(
     }
 )
 
-// Virtual for author's URL
+// Virtual for book's URL
 BookSchema
     .virtual('url')
     .get(function () {
-        return 'catalog/book' + this._id
+        return 'catalog/book/' + this._id
     })
 
 module.exports = mongoose.model('Book', BookSchema)

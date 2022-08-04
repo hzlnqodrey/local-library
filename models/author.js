@@ -69,7 +69,7 @@ AuthorSchema
 AuthorSchema
     .virtual('url')
     .get(function () {
-        return '/catalog/author' + this._id
+        return '/catalog/author/' + this._id
     })
 
 // Export author's model
