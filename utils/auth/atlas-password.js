@@ -1,1 +1,0 @@
-module.export.atlasPassword  = "mongodb+srv://hazlanqodrey:<password>@cluster0.pg4ky.mongodb.net/?retryWrites=true&w=majority"
