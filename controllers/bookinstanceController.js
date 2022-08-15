@@ -35,7 +35,7 @@ exports.bookinstance_update_get = (req, res) => {
     res.send('BookInstance update Get')
 }
 
-// Handle BookInstance update form on GET.
+// Handle BookInstance update form on POST.
 exports.bookinstance_update_post = (req, res) => {
     res.send('BookInstance update Post')
 }
