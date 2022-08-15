@@ -14,3 +14,8 @@ exports.bookinstance_detail = (req, res) => {
 exports.bookinstance_create_get = (req, res) => {
     res.send('BookInstance Create Get')
 }
+
+// Handle BookInstance create form on POST.
+exports.bookinstance_create_post = (req, res) => {
+    res.send('BookInstance Create Post')
+}
