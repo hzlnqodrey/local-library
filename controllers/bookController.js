@@ -4,3 +4,8 @@ const Book = require('../models/book')
 exports.index = (req, res) => {
     res.send('Site Home Page')
 }
+
+// Display list of all books
+exports.book_list = (req, res) => {
+    res.send('Book List')
+}
