@@ -24,3 +24,13 @@ exports.book_create_get = (req, res) => {
 exports.book_create_post = (req, res) => {
     res.send('Book Create Post')
 }
+
+// Display Book delete form on GET
+exports.book_delete_get = (req, res) => {
+    res.send('Book delete Get')
+}
+
+// Handle Book delete form on POST
+exports.book_delete_post = (req, res) => {
+    res.send('Book delete Post')
+}
