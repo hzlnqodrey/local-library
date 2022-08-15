@@ -9,3 +9,8 @@ exports.index = (req, res) => {
 exports.book_list = (req, res) => {
     res.send('Book List')
 }
+
+// Display detail page for a specific book
+exports.book_detail = (req, res) => {
+    res.send(`Book Detail: ${req.params.id}`)
+}
