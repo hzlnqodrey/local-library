@@ -8,6 +8,7 @@ const logger = require('morgan')
 // Import Route
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const wikiRouter = require('./routes/wiki')
 
 const app = express()
 
