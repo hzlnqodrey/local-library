@@ -24,3 +24,8 @@ exports.bookinstance_create_post = (req, res) => {
 exports.bookinstance_delete_get = (req, res) => {
     res.send('BookInstance Delete Get')
 }
+
+// Handle BookInstance delete form on GET.
+exports.bookinstance_delete_post = (req, res) => {
+    res.send('BookInstance Delete Post')
+}
