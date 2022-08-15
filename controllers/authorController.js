@@ -12,5 +12,10 @@ exports.author_detail = (req, res) => {
 
 // Display Author create form on GET.
 exports.author_create_get = (req, res) => {
-    res.send('Authour Create Get')
+    res.send('Author Create Get')
+}
+
+// Display Author create form on POST.
+exports.author_create_post = (req, res) => {
+    res.send('Author Create Post')
 }
