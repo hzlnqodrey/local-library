@@ -29,3 +29,14 @@ exports.bookinstance_delete_get = (req, res) => {
 exports.bookinstance_delete_post = (req, res) => {
     res.send('BookInstance Delete Post')
 }
+
+// Display BookInstance update form on GET.
+exports.bookinstance_update_get = (req, res) => {
+    res.send('BookInstance update Get')
+}
+
+// Handle BookInstance update form on GET.
+exports.bookinstance_update_post = (req, res) => {
+    res.send('BookInstance update Post')
+}
+
