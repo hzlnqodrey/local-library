@@ -34,3 +34,13 @@ exports.book_delete_get = (req, res) => {
 exports.book_delete_post = (req, res) => {
     res.send('Book delete Post')
 }
+
+// Display Book update form on GET
+exports.book_update_get = (req, res) => {
+    res.send('Book update Get')
+}
+
+// Handle Book update form on POST
+exports.book_update_post = (req, res) => {
+    res.send('Book update Post')
+}
