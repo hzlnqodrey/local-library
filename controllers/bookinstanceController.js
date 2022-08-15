@@ -9,3 +9,8 @@ exports.bookinstance_list = (req, res) => {
 exports.bookinstance_detail = (req, res) => {
     res.send(`BookInstance Detail: ${req.params.id}`)
 }
+
+// Display BookInstance create form on GET.
+exports.bookinstance_create_get = (req, res) => {
+    res.send('BookInstance Create Get')
+}
