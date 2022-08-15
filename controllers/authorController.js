@@ -15,7 +15,12 @@ exports.author_create_get = (req, res) => {
     res.send('Author Create Get')
 }
 
-// Display Author create form on POST.
+// Handle Author create form on POST.
 exports.author_create_post = (req, res) => {
     res.send('Author Create Post')
+}
+
+// Display Author delete form on GET.
+exports.author_delete_get = (req, res) => {
+    res.send('Author Delete Get')
 }
