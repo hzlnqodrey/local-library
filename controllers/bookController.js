@@ -14,3 +14,8 @@ exports.book_list = (req, res) => {
 exports.book_detail = (req, res) => {
     res.send(`Book Detail: ${req.params.id}`)
 }
+
+// Display Book create form on GET
+exports.book_create_get = (req, res) => {
+    res.send('Book Create Get')
+}
