@@ -34,3 +34,8 @@ exports.author_delete_post = (req, res) => {
 exports.author_update_get = (req, res) => {
     res.send('Author Update Get')
 }
+
+// Handle Author Update form on POST.
+exports.author_update_post = (req, res) => {
+    res.send('Author Update Post')
+}
