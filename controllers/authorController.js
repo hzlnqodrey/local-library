@@ -29,3 +29,8 @@ exports.author_delete_get = (req, res) => {
 exports.author_delete_post = (req, res) => {
     res.send('Author Delete Post')
 }
+
+// Display Author Update form on GET.
+exports.author_update_get = (req, res) => {
+    res.send('Author Update Get')
+}
