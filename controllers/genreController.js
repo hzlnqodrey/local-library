@@ -19,3 +19,14 @@ exports.genre_create_get = (req, res) => {
 exports.genre_create_post = (req, res) => {
     res.send('Genre Create Post')
 }
+
+// Display Genre delete form on GET.
+exports.genre_delete_get = (req, res) => {
+    res.send('Genre delete Get')
+}
+
+// Handle Genre delete form on POST.
+exports.genre_delete_post = (req, res) => {
+    res.send('Genre delete Post')
+}
+
