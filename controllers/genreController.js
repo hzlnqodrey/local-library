@@ -30,3 +30,12 @@ exports.genre_delete_post = (req, res) => {
     res.send('Genre delete Post')
 }
 
+// Display Genre update form on GET.
+exports.genre_update_get = (req, res) => {
+    res.send('Genre update Get')
+}
+
+// Handle Genre update form on POST.
+exports.genre_update_post = (req, res) => {
+    res.send('Genre update Post')
+}
