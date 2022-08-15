@@ -24,3 +24,8 @@ exports.author_create_post = (req, res) => {
 exports.author_delete_get = (req, res) => {
     res.send('Author Delete Get')
 }
+
+// Handle Author delete form on POST.
+exports.author_delete_post = (req, res) => {
+    res.send('Author Delete Post')
+}
