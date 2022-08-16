@@ -116,3 +116,5 @@ const genre = require('../controllers/genreController')
 
     // GET request for list of all Genres
     router.get('/genres', genre.genre_list)
+
+module.exports = router
