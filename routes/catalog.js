@@ -96,6 +96,9 @@ const genre = require('../controllers/genreController')
     // GET request for creating Genre
     router.get('/genre/create', genre.genre_create_get)
 
+    // POST request for creating Genre
+    router.post('genre/create', genre.genre_create_post)
+
     // GET request for one Genre
     router.get('/genre/:id', genre.genre_detail)
 
