@@ -53,6 +53,9 @@ const genre = require('../controllers/genreController')
     // POST request for delete Book.
     router.post('/book/:id/delete', book_controller.book_delete_post)
 
+    // GET request for update Book.
+    router.get('/book/:id/update', book_controller.book_update_get)
+
 // BOOK INSTANCE ROUTES //
 
 // GENRE ROUTES //
