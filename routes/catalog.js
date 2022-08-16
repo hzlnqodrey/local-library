@@ -41,7 +41,9 @@ const genre = require('../controllers/genreController')
     // GET catalog home page
     router.get('/', book_controller.index)
 
-    
+    // GET request for creating Book.
+    router.get('/book/create', book_controller.book_create_get)
+
 // BOOK INSTANCE ROUTES //
 
 // GENRE ROUTES //
