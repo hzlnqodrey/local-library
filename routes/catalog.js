@@ -11,6 +11,10 @@ const genre = require('../controllers/genreController')
 
 // AUTHOR ROUTES //
 
+    // GET request for creating Author. 
+    // NOTE This must come before route for id (i.e. display author).
+    router.get('/author/create', author_controller.author_create_get)
+
     // GET request for one author
     router.get('/author/:id', author_controller.author_detail)
 
