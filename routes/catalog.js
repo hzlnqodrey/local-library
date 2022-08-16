@@ -56,6 +56,9 @@ const genre = require('../controllers/genreController')
     // GET request for update Book.
     router.get('/book/:id/update', book_controller.book_update_get)
 
+    // POST request for update Book.
+    router.post('/book/:id/update', book_controller.book_update_post)
+
 // BOOK INSTANCE ROUTES //
 
 // GENRE ROUTES //
