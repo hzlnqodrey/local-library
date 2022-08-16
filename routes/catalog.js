@@ -76,6 +76,9 @@ const genre = require('../controllers/genreController')
     // GET request for deleting Book Instance.
     router.get('/bookinstance/:id/delete', bookinstance_controller.bookinstance_delete_get)
 
+    // POST request for deleting Book Instance.
+    router.post('bookinstance/:id/delete', bookinstance_controller.bookinstance_delete_post)
+
     // GET request for one Book Instance.
     router.get('/bookinstance/:id', bookinstance_controller.bookinstance_detail)
 
