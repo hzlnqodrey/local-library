@@ -70,7 +70,7 @@ const genre = require('../controllers/genreController')
     // GET request for create 
 
     // GET request for one Book Instance.
-    router.get('/bookinstance/:id', book_controller.book_detail)
+    router.get('/bookinstance/:id', bookinstance_controller.bookinstance_detail)
 
     // GET request for list of all Book Instances.
     router.get('/bookinstances', bookinstance_controller.bookinstance_list)
