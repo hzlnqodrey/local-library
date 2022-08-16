@@ -37,7 +37,11 @@ const genre = require('../controllers/genreController')
     router.get('/authors', author_controller.author_list)
 
 // BOOK ROUTES //
+    
+    // GET catalog home page
+    router.get('/', book_controller.index)
 
+    
 // BOOK INSTANCE ROUTES //
 
 // GENRE ROUTES //
