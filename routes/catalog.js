@@ -108,6 +108,9 @@ const genre = require('../controllers/genreController')
     // GET request for updating Genre
     router.get('/genre/:id/update', genre.genre_update_get)
 
+    // POST request for updating Genre
+    router.post('/genre/:id/update', genre.genre_update_post)
+
     // GET request for one Genre
     router.get('/genre/:id', genre.genre_detail)
 
