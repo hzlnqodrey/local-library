@@ -105,6 +105,9 @@ const genre = require('../controllers/genreController')
     // POST request for deleting Genre
     router.post('/genre/:id/delete', genre.genre_delete_post)
 
+    // GET request for updating Genre
+    router.get('/genre/:id/update', genre.genre_update_get)
+
     // GET request for one Genre
     router.get('/genre/:id', genre.genre_detail)
 
