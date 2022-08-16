@@ -18,6 +18,9 @@ const genre = require('../controllers/genreController')
     // POST request for creating Author.
     router.post('/author/create', author_controller.author_create_post)
 
+    // GET request for delete Author.
+    router.get('/author/:id/delete', author_controller.author_delete_get)
+
     // GET request for one author
     router.get('/author/:id', author_controller.author_detail)
 
