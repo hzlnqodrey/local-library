@@ -6,3 +6,13 @@ const author_controller = require('../controllers/authorController')
 const book_controller = require('../controllers/bookController')
 const bookinstance_controller = require('../controllers/bookinstanceController')
 const genre = require('../controllers/genreController')
+
+// ----------------------------------------------------------------------------
+
+// AUTHOR ROUTES //
+
+// BOOK ROUTES //
+
+// BOOK INSTANCE ROUTES //
+
+// GENRE ROUTES //
