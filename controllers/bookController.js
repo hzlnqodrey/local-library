@@ -35,8 +35,6 @@ exports.index = (req, res) => {
             data: results
         })
     })
-
-    res.send('Site Home Page')
 }
 
 // Display list of all books
