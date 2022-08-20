@@ -50,6 +50,7 @@ exports.book_list = (req, res, next) => {
                 book_list: list_books
             })
         })
+        
 }
 
 // Display detail page for a specific book
