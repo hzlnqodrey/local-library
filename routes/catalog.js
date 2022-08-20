@@ -39,7 +39,7 @@ const genre = require('../controllers/genreController')
 // BOOK ROUTES //
     
     // GET catalog home page
-    router.get('/', book_controller.index)
+    router.get('/', book_controller.index) //This actually maps to /catalog/ because we import the route with a /catalog prefix
 
     // GET request for creating Book.
     router.get('/book/create', book_controller.book_create_get)
