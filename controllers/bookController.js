@@ -5,6 +5,10 @@ const BookInstance = require('../models/bookinstance');
 
 // Index Site Home Page
 exports.index = (req, res) => {
+    async.parallel({
+        
+    })
+
     res.send('Site Home Page')
 }
 
