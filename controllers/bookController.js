@@ -16,6 +16,10 @@ exports.index = (req, res) => {
 
         book_instance_available_count(callback) {
             BookInstance.countDocuments({status: 'Available'}, callback)
+        },
+
+        author_count(callback) {
+            Author.countDocuments({}, callback)
         }
     })
 
