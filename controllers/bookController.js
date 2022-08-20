@@ -20,6 +20,10 @@ exports.index = (req, res) => {
 
         author_count(callback) {
             Author.countDocuments({}, callback)
+        },
+
+        genre_count(callback) {
+            Genre.countDocuments({}, callback)
         }
     })
 
