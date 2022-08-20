@@ -6,7 +6,9 @@ const BookInstance = require('../models/bookinstance');
 // Index Site Home Page
 exports.index = (req, res) => {
     async.parallel({
-        
+        book_count(callback) {
+            Book.countDocuments({}, callback)  // Pass an empty object as match condition to find all documents of this collection
+        }
     })
 
     res.send('Site Home Page')
