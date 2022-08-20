@@ -3,6 +3,8 @@ const Author = require('../models/author');
 const Genre = require('../models/genre');
 const BookInstance = require('../models/bookinstance');
 
+const async = require('async')
+
 // Index Site Home Page
 exports.index = (req, res) => {
     async.parallel({
