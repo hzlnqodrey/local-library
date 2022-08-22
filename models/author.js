@@ -51,17 +51,17 @@ AuthorSchema
 AuthorSchema
     .virtual('lifespan')
     .get(function () {
-        var lifetime_string = ''
+        // var lifetime_string = ''
 
-        if ( this.date_of_birth ) {
-            lifetime_string = this.date_of_birth.getFullYear().toString()
-        }
+        // if ( this.date_of_birth ) {
+        //     lifetime_string = this.date_of_birth.getFullYear().toString()
+        // }
 
-        lifetime_string = ' - '
+        // lifetime_string = ' - '
 
-        if ( this.date_of_death ) {
-            lifetime_string += this.date_of_death.getFullYear()
-        }
+        // if ( this.date_of_death ) {
+        //     lifetime_string += this.date_of_death.getFullYear()
+        // }
 
         return this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ''
     })
