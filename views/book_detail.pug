@@ -2,16 +2,17 @@ extends layout
 
 block content
     h1 Title: #{book.title}
-    br
     h6 #[strong Author:] 
         a(href=book.author.url)  #{book.author.name}
-    br
     h6 #[strong Summary:]  #{book.summary}
-    br
     h6 #[strong ISBN:] #{book.isbn}
-    br
     //- because genre is object of an array we need to iterate it
-    each val, index in book.genre 
+    h6 #[strong Genre:]
+        each val, index in book.genre
+            a(href=val.url)  #{val.name}
+            if index < book.genre.length
+                | ,
+         
     div(style='margin-left:30px;margin-top:20px')
 
         h3 Copies
