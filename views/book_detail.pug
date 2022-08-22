@@ -1,0 +1,37 @@
+extends layout 
+
+block content
+    h1 Title: #{book.title}
+    br
+    h6 #[strong Author:] #{book.author.name}
+    br
+    h6 #[strong Summary:]  #{book.summary}
+    br
+    h6 #[strong ISBN:] #{book.isbn}
+    br
+    h6 #[strong Genre:] #{book.genre.name}
+
+    div(style='margin-left:30px;margin-top:20px')
+
+        h3 Copies
+
+        hr
+
+        dl
+            each copy in book_copies
+                dd
+                    if copy.status == 'Available'
+                        span.text-success #{copy.status}
+                    else if copy.status == 'Maintenance'
+                        span.text-danger #{copy.status}
+                    else if copy.status = 'Loaned'
+                        span.text-warning #{copy.status}
+                    if copy.status!='Available'
+                        span  (Due: #{copy.due_back_formatted})
+                dd #[strong Imprint:] #{copy.imprint}
+                dd #[strong Id: ]
+                     a(href=copy.url) #{copy._id}
+                br
+
+            else
+                p There book has no copies
