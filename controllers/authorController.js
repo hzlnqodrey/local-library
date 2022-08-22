@@ -41,6 +41,7 @@ exports.author_detail = (req, res, next) => {
         }
 
         res.render('author_detail', {
+            title: results.author.name,
             author: results.author,
             author_books: results.author_books
         })
