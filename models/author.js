@@ -62,7 +62,7 @@ AuthorSchema
             lifetime_string += this.date_of_death.getFullYear()
         }
 
-        return lifetime_string
+        return this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ''
     })
 
 // Virtual for author's URL
