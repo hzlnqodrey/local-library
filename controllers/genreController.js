@@ -30,7 +30,21 @@ exports.genre_detail = (req, res, next) => {
         }
     },
     (err, result) => {
-        
+        if (err) {
+            return next(err)
+        }
+        // No result of genres.
+        if (result.genre == null) {
+            const err = new Error("Genre not found")
+            err.status = 404
+            return next(err)
+        }
+
+        res.render('genre_detail', {
+            title: 'Genre Detail',
+            genre: result.genre,
+            genre_books: result.genre_detail
+        })
     })
 }
 
