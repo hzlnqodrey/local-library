@@ -19,8 +19,19 @@ exports.genre_list = (req, res, next) => {
 }
 
 // Display detail page for a specific genre
-exports.genre_detail = (req, res) => {
-    res.send(`Genre Detail: ${req.params.id}`)
+exports.genre_detail = (req, res, next) => {
+    async.parallel({
+        genre(callback) {
+            Genre.findById(req.params.id).exec(callback)
+        },
+
+        genre_detail(callback) {
+            Book.find({ genre: req.params.id }).exec(callback)
+        }
+    },
+    (err, result) => {
+        
+    })
 }
 
 // Display Genre create form on GET.
