@@ -25,7 +25,7 @@ exports.genre_detail = (req, res, next) => {
             Genre.findById(req.params.id).exec(callback)
         },
 
-        genre_detail(callback) {
+        genre_books(callback) {
             Book.find({ genre: req.params.id }).exec(callback)
         }
     },
@@ -43,7 +43,7 @@ exports.genre_detail = (req, res, next) => {
         res.render('genre_detail', {
             title: 'Genre Detail',
             genre: results.genre,
-            genre_books: results.genre_detail
+            genre_books: results.genre_books
         })
     })
 }
