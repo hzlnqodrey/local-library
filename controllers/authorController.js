@@ -20,7 +20,7 @@ exports.author_list = (req, res, next) => {
 }
 
 // Display detail page for a specific Author.
-exports.author_detail = (req, res) => {
+exports.author_detail = (req, res, next) => {
     async.parallel({
         author(callback) {
             Author.findById(req.params.id).exec(callback)
@@ -31,6 +31,15 @@ exports.author_detail = (req, res) => {
         }
     },
     (err, results) => {
+        if (err) { return next(err) }
+
+        // If there is no correspondence author that user's request, so throw error
+        if (results.author == null) {
+            const err = new Error("Author not found")
+            err.status = 404
+            return next(err)
+        }
+
         res.render('author_detail', {
             author: results.author,
             author_books: results.author_books
