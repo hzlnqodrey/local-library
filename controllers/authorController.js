@@ -1,5 +1,6 @@
 const Author = require('../models/author')
 const Book = require('../models/book')
+const async = require('async')
 
 // Display list of all Authors.
 exports.author_list = (req, res, next) => {
@@ -20,7 +21,12 @@ exports.author_list = (req, res, next) => {
 
 // Display detail page for a specific Author.
 exports.author_detail = (req, res) => {
-    res.send(`Author Detail: ${req.params.id} `)
+    async.parallel({
+        
+    },
+    (err, results) => {
+
+    })
 }
 
 // Display Author create form on GET.
