@@ -29,12 +29,12 @@ exports.genre_detail = (req, res, next) => {
             Book.find({ genre: req.params.id }).exec(callback)
         }
     },
-    (err, result) => {
+    (err, results) => {
         if (err) {
             return next(err)
         }
-        // No result of genres.
-        if (result.genre == null) {
+        // No results of genres.
+        if (results.genre == null) {
             const err = new Error("Genre not found")
             err.status = 404
             return next(err)
@@ -42,8 +42,8 @@ exports.genre_detail = (req, res, next) => {
 
         res.render('genre_detail', {
             title: 'Genre Detail',
-            genre: result.genre,
-            genre_books: result.genre_detail
+            genre: results.genre,
+            genre_books: results.genre_detail
         })
     })
 }
