@@ -22,10 +22,19 @@ exports.author_list = (req, res, next) => {
 // Display detail page for a specific Author.
 exports.author_detail = (req, res) => {
     async.parallel({
-        
+        author(callback) {
+            Author.findById(req.params.id).exec(callback)
+        },
+
+        author_books(callback) {
+            Book.find({ 'author' : req.params.id }).exec(callback)
+        }
     },
     (err, results) => {
-
+        res.render('author_detail', {
+            author: results.author,
+            author_books: results.author_books
+        })
     })
 }
 
