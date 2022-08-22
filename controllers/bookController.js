@@ -70,7 +70,15 @@ exports.book_detail = (req, res, next) => {
     (err, results) => {
         if (err) { return next(err) }
 
+        // No book corespondence with the user request
+        if (results.book == null) {
+            const err = new Error("No book found")
+            err.status = 404
+            return next(err)
+        }
+
         res.render('book_detail', {
+            title: results.book.title,
             book: results.book,
             book_copies: results.book_copies
         })
