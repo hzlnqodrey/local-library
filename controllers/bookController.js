@@ -55,7 +55,23 @@ exports.book_list = (req, res, next) => {
 
 // Display detail page for a specific book
 exports.book_detail = (req, res) => {
-    res.send(`Book Detail: ${req.params.id}`)
+    async.parallel({
+      Book(callback) {
+        Book.findById(req.params.id).exec(callback)
+      },
+
+      Book_Copies(callback) {
+        BookInstance.find({ 'book': req.params.id }).sort([['status', 'ascending']]).exec(callback)
+      }
+    },
+    (err, results) => {
+        if (err) { return next(err) }
+
+        res.render('book_detail', {
+            book: results.Book,
+            book_copies: results.Book_Copies
+        })
+    })
 }
 
 // Display Book create form on GET
