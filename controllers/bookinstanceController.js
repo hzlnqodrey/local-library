@@ -18,8 +18,23 @@ exports.bookinstance_list = (req, res, next) => {
 }
 
 // Display detail page for a specific BookInstance
-exports.bookinstance_detail = (req, res) => {
-    res.send(`BookInstance Detail: ${req.params.id}`)
+exports.bookinstance_detail = (req, res, next) => {
+    BookInstance.findById(req.params.id)
+        .populate('book')
+        .exec((err, bookinstance) => {
+            if (err) { return next(err) }
+
+            if (bookinstance == null) {
+                const err = new Error("Bookinstance not found")
+                err.status = 404
+                return next(err)
+            }
+
+            res.render('bookinstance_detail', {
+                title: bookinstance.book.title,
+                bookinstance
+            })
+        })
 }
 
 // Display BookInstance create form on GET.
