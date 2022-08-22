@@ -18,3 +18,5 @@ block content
             span.text-warning  #{bookinstance.status}
         if bookinstance.status!='Available'
             span  (Due:  #{bookinstance.due_back_formatted})
+
+    h6 #[strong Due back:] #{bookinstance.due_back_formatted}
