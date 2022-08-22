@@ -47,6 +47,21 @@ AuthorSchema
         return fullname
     })
 
+
+// Virtual for author's birth date formatted
+AuthorSchema
+    .virtual('date_of_birth_formatted')
+    .get(function () {
+        return this.date_of_birth ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ''
+    })
+
+// Virtual for author's birth date formatted
+AuthorSchema
+    .virtual('date_of_death_formatted')
+    .get(function () {
+        return this.date_of_death ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED) : ''
+    })
+
 // Virtual for author's lifespan
 AuthorSchema
     .virtual('lifespan')
