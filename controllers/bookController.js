@@ -56,11 +56,11 @@ exports.book_list = (req, res, next) => {
 // Display detail page for a specific book
 exports.book_detail = (req, res) => {
     async.parallel({
-      Book(callback) {
+      book(callback) {
         Book.findById(req.params.id).exec(callback)
       },
 
-      Book_Copies(callback) {
+      book_copies(callback) {
         BookInstance.find({ 'book': req.params.id }).sort([['status', 'ascending']]).exec(callback)
       }
     },
@@ -68,8 +68,8 @@ exports.book_detail = (req, res) => {
         if (err) { return next(err) }
 
         res.render('book_detail', {
-            book: results.Book,
-            book_copies: results.Book_Copies
+            book: results.book,
+            book_copies: results.cook_copies
         })
     })
 }
