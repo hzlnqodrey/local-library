@@ -11,6 +11,9 @@ const usersRouter = require('./routes/users')
 const wikiRouter = require('./routes/wiki')
 const catalogRouter = require('./routes/catalog')
 
+// HTTPS-Client Compression for reducing time rendering/load
+const compression = require('compression');
+
 const app = express()
 
 // Mongoose Connection Setup
@@ -36,6 +39,8 @@ app.use(express.urlencoded({ extended: false }))
 
 // reference use: https://www.npmjs.com/package/cookie-parser
 app.use(cookieParser()) // Parse Cookie header and populate req.cookies with an object keyed by the cookie names. Optionally you may enable signed cookie support by passing a secret string, which assigns req.secret so it may be used by other middleware.
+
+app.use(compression()); //Compress all routes
 
 // express.static middleware, which makes Express serve all the static files in the /public directory in the project root.
 app.use(express.static(path.join(__dirname, 'public')))
