@@ -19,9 +19,12 @@ const helmet = require('helmet')
 const app = express()
 
 // Mongoose Connection Setup
+  // DB Variable
+  const dev_db_url = "mongodb+srv://hazlanqodrey:47OKd0rKJKM1f8Ke@cluster0.pg4ky.mongodb.net/local_library?retryWrites=true&w=majority"
+  const mongoDB = process.env.MONGODB_URI || dev_db_url
   // Import Connection
   const mongoose = require('mongoose')
-  mongoose.connect(process.env.MONGO_URI, {
+  mongoose.connect(mongoDB , {
       useNewUrlParser: true,
       useUnifiedTopology: true
   })
