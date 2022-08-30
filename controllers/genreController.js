@@ -52,12 +52,14 @@ exports.genre_detail = (req, res, next) => {
 }
 
 // Display Genre create form on GET.
-exports.genre_create_get = (req, res) => {
-    res.send('Genre Create Get')
+exports.genre_create_get = (req, res, next) => {
+    res.render('genre_create', {
+        title: "Create Genre",
+    })
 }
 
 // Handle Genre create form on POST.
-exports.genre_create_post = (req, res) => {
+exports.genre_create_post = (req, res, next) => {
     res.send('Genre Create Post')
 }
 
