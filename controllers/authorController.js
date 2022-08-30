@@ -85,7 +85,7 @@ exports.author_create_post = [
     body("date_of_death", "Invalid date of death")
         .optional({ checkFalsy: true })
         .isISO8601()
-        .toDate()
+        .toDate(),
 
     // Process Data
     (req, res, next) => {
@@ -96,7 +96,7 @@ exports.author_create_post = [
             // If there was an error, render the error to client-side
             res.render('author_form', {
                 title: "Create Author",
-                author,
+                author: req.body,
                 errors: errors.array()
             })
 
