@@ -61,7 +61,7 @@ exports.genre_create_get = (req, res, next) => {
 // Handle Genre create form on POST.
 exports.genre_create_post = (req, res, next) => [
     // Validate and sanitize the name field.
-    body("name", "Genre name require")
+    body("name", "Genre name required")
         .trim() // to delete (if is there) the first whitespace and the last whitespace
         .isLength({ min: 1 }) // to check whether string value is minimal 1 
         .escape(), // to remove HTML characters from the variable that might be used in JavaScript cross-site scripting attacks.
@@ -107,8 +107,6 @@ exports.genre_create_post = (req, res, next) => [
                 }
             })
         }
-        
-
     }
 ]
 
