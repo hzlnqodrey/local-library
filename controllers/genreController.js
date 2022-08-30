@@ -101,7 +101,7 @@ exports.genre_create_post = (req, res, next) => [
                             return next(err)
                         }
                         
-                        // Genre is added. redirect to genre detail
+                        // Genre is added. redirect to its detail page
                         res.redirect(genre.url)
                     })
                 }
