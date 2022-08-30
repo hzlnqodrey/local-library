@@ -77,7 +77,11 @@ exports.author_create_post = [
         .isAlphanumeric()
         .withMessage("Family Name has non-alphanumeric characters."),
 
-        
+    body("date_of_birth", "Invalid date of birth")
+        .optional({ checkFalsy: true })
+        .isISO8601()
+        .toDate(),
+
     // Process Data
     (req, res, next) => {
         
