@@ -107,7 +107,7 @@ exports.author_create_post = [
 
         // Create New Author Object after validation and sanitization
         const author = new Author({
-            name: req.body.first_name,
+            first_name: req.body.first_name,
             family_name: req.body.family_name,
             date_of_birth: req.body.date_of_birth,
             date_of_death: req.body.date_of_death
