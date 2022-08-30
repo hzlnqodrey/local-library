@@ -52,11 +52,18 @@ exports.genre_detail = (req, res, next) => {
 }
 
 // Display Genre create form on GET.
-exports.genre_create_get = (req, res, next) => {
-    res.render('genre_create', {
-        title: "Create Genre",
-    })
-}
+exports.genre_create_get = [
+    // Validator
+    body("name", "Genre name require")
+        .trim() // to delete (if is there) the first whitespace and the last whitespace
+        .isLength({ min: 1 }) // to check whether string value is minimal 1 
+        .escape() // to remove HTML characters from the variable that might be used in JavaScript cross-site scripting attacks.
+
+    // HTTP Response
+    (req, res, next) => {
+
+    }
+]
 
 // Handle Genre create form on POST.
 exports.genre_create_post = (req, res, next) => {
