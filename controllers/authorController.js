@@ -59,9 +59,44 @@ exports.author_create_get = (req, res, next) => {
 }
 
 // Handle Author create form on POST.
-exports.author_create_post = (req, res, next) => {
-    res.send('Author Create Post')
-}
+exports.author_create_post = [
+    // Validation & Sanitization
+
+    // Process Data
+    (req, res, next) => {
+        
+        const errors = validationResult(req)
+
+        if ( !errors.isEmpty() ) {
+            // If there was an error, render the error to client-side
+            res.render('author_form', {
+                title: "Create Author",
+                author,
+                errors: errors.array()
+            })
+
+            return
+        }
+
+        // Data Form is Valid, so process it
+
+        // Create New Author Object after validation and sanitization
+        const author = new Author({
+            name: req.body.first_name,
+            family_name: req.body.family_name,
+            date_of_birth: req.body.date_of_birth,
+            date_of_death: req.body.date_of_death
+        })
+
+        author.save((err) => {
+            if ( err ) {
+                return next(err)
+            }
+
+            res.render(author.url)
+        })
+    }
+]
 
 // Display Author delete form on GET.
 exports.author_delete_get = (req, res) => {
