@@ -52,14 +52,14 @@ exports.author_detail = (req, res, next) => {
 }
 
 // Display Author create form on GET.
-exports.author_create_get = (req, res) => {
+exports.author_create_get = (req, res, next) => {
     res.render('author_form', {
         title: "Create Author"
     })
 }
 
 // Handle Author create form on POST.
-exports.author_create_post = (req, res) => {
+exports.author_create_post = (req, res, next) => {
     res.send('Author Create Post')
 }
 
