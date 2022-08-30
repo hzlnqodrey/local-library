@@ -118,7 +118,7 @@ exports.author_create_post = [
                 return next(err)
             }
 
-            res.render(author.url)
+            res.redirect(author.url)
         })
     }
 ]
