@@ -59,7 +59,7 @@ exports.genre_create_get = (req, res, next) => {
 }
 
 // Handle Genre create form on POST.
-exports.genre_create_post = (req, res, next) => {
+exports.genre_create_post = (req, res, next) => [
     // Validate and sanitize the name field.
     body("name", "Genre name require")
         .trim() // to delete (if is there) the first whitespace and the last whitespace
@@ -110,7 +110,7 @@ exports.genre_create_post = (req, res, next) => {
         
 
     }
-}
+]
 
 // Display Genre delete form on GET.
 exports.genre_delete_get = (req, res) => {
