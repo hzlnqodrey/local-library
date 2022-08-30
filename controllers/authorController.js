@@ -67,8 +67,17 @@ exports.author_create_post = [
         .escape()
         .withMessage("First Name must be specified.")
         .isAlphanumeric()
-        .withMessage("First name has non-alphanumeric characters."),
+        .withMessage("First Name has non-alphanumeric characters."),
 
+    body("family_name")
+        .trim()
+        .isLength({ min: 1 })
+        .escape()
+        .withMessage("Family Name must be specified.")
+        .isAlphanumeric()
+        .withMessage("Family Name has non-alphanumeric characters."),
+
+        
     // Process Data
     (req, res, next) => {
         
