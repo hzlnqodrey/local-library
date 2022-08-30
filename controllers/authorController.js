@@ -61,6 +61,13 @@ exports.author_create_get = (req, res, next) => {
 // Handle Author create form on POST.
 exports.author_create_post = [
     // Validation & Sanitization
+    body("first_name")
+        .trim()
+        .isLength({ min: 1 })
+        .escape()
+        .withMessage("First Name must be specified.")
+        .isAlphanumeric()
+        .withMessage("First name has non-alphanumeric characters."),
 
     // Process Data
     (req, res, next) => {
