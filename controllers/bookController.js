@@ -110,9 +110,15 @@ exports.book_create_get = (req, res, next) => {
 }
 
 // Handle Book create form on POST
-exports.book_create_post = (req, res) => {
-    res.send('Book Create Post')
-}
+exports.book_create_post = [
+    // Convert the genre into Array
+    (req, res, next) => {
+        if (!Array.isArray(req.body.genre)) {
+            req.body.genre = typeof req.body.genre === "undefined" ? [] : [req.body.genre]
+        }
+        next()
+    }
+]
 
 // Display Book delete form on GET
 exports.book_delete_get = (req, res) => {
