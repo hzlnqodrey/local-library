@@ -1,4 +1,7 @@
 const BookInstance = require('../models/bookinstance')
+const Book = require('../models/book')
+
+const { body, validationResult } = require('express-validator')
 
 // Display list of all BookInstances.
 exports.bookinstance_list = (req, res, next) => {
@@ -38,8 +41,8 @@ exports.bookinstance_detail = (req, res, next) => {
 }
 
 // Display BookInstance create form on GET.
-exports.bookinstance_create_get = (req, res) => {
-    res.send('BookInstance Create Get')
+exports.bookinstance_create_get = (req, res, next) => {
+    
 }
 
 // Handle BookInstance create form on POST.
