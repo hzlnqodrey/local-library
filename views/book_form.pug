@@ -1,3 +1,13 @@
 extends layout
 
 block content
+    h1= title
+
+    form(action="", method="post") 
+     div.form-group
+      label(for="title") Title:
+      input#title.form-control(type='text', placeholder='Name of book' name='title' value(undefined === book ? '' : book.title) required='true')
+     div.form-group
+      label(for="author") Author: 
+      select#author.form-control(type='select', placeholder='Select author' name='author' required='true')
+       - authors.sort()

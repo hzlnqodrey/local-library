@@ -177,8 +177,8 @@ exports.book_create_post = [
 
                 res.render("book_form", {
                     title: "Create Book",
-                    author: results.author,
-                    genre: results.genre,
+                    authors: results.author,
+                    genres: results.genre,
                     book,
                     errors: errors.array()
                 })
