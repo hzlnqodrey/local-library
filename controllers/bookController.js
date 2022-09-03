@@ -88,7 +88,9 @@ exports.book_detail = (req, res, next) => {
 
 // Display Book create form on GET
 exports.book_create_get = (req, res) => {
-    res.send('Book Create Get')
+    res.render('book_form', {
+        title: 'Create Book'
+    })
 }
 
 // Handle Book create form on POST
