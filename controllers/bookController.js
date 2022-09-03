@@ -87,9 +87,25 @@ exports.book_detail = (req, res, next) => {
 }
 
 // Display Book create form on GET
-exports.book_create_get = (req, res) => {
-    res.render('book_form', {
-        title: 'Create Book'
+exports.book_create_get = (req, res, next) => {
+    async.parallel({
+        author(callback) {
+            Author.find(callback)
+        },
+
+        genre(callback) {
+            Genre.find(callback)
+        }
+    },
+    (err, result) => {
+        if ( err ) {
+            return next(err)
+        }
+        res.render('book_form', {
+            title: 'Create Book',
+            authors: results.author,
+            genres: results.genre
+        })
     })
 }
 
