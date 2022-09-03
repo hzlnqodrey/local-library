@@ -153,6 +153,48 @@ exports.book_create_post = [
             genre: req.body.genre
         })
 
+        if (!errors.isEmpty()) {
+            // There are errors. Render form again with sanitized values/error messages.
+            async.parallel({
+                author(callback) {
+                    Author.find(callback)
+                },
+                genre(callback) {
+                    Genre.find(callback)
+                }
+            },
+            (err, results) => {
+                if ( err ) {
+                    return next(err)
+                }
+
+                // Mark our selected genres as checked.
+                for ( const genre of results.genre ) {
+                    if ( book.genre.includes(genre._id)) {
+                        genre.checked = "true"
+                    }
+                }
+
+                res.render("book_form", {
+                    title: "Create Book",
+                    author: results.author,
+                    genre: results.genre,
+                    book,
+                    errors: errors.array()
+                })
+            })
+            return 
+        }
+
+        // Data from form is valid. Save book.
+        book.save((err) => {
+            if ( err ) {
+                return next(err)
+            }
+            // Successful: redirect to new book record.
+            res.redirect(book.url)
+        })
+
     }
     
 ]
