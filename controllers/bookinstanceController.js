@@ -74,6 +74,49 @@ exports.bookinstance_create_post = [
         .optional({ checkFalsy: true })
         .isISO8601()
         .toDate(),
+
+    // Process the data after validation and sanitization
+    (req, res, next) => {
+
+        const errors = validationResult(req)
+
+        const bookinstance = new BookInstance({
+            book: req.body.book,
+            imprint: req.body.imprint,
+            status: req.body.status,
+            due_back: req.body.due_back
+        })
+
+        if(!errors.isEmpty()) {
+            // There are errors. Render form again with sanitized values and error messages.
+            Book.find({}, 'title')
+                .exec((err, books) => {
+                    if ( err ) {
+                        return next(err)
+                    }
+                    
+                    res.render('bookinstance_form', {
+                        title: "Create BookInstance",
+                        book_list: books,
+                        selected_book: bookinstance._id,
+                        errors: errors.array(),
+                        bookinstance
+                    })
+                })
+            return
+        }
+
+        // Data from form is valid.
+        bookinstance.save((err) => {
+            if ( err ) {
+                return next(err)
+            }
+
+            // Successful: redirect to new record.
+            res.redirect(bookinstance.url)
+        })
+
+    }
 ]
 
 // Display BookInstance delete form on GET.
