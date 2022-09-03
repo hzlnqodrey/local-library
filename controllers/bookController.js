@@ -139,6 +139,21 @@ exports.book_create_post = [
     body("genre.*") // use a wildcard (*) in the sanitizer to individually validate each of the genre array entries.
         .escape(),
 
+    // Processing the Data after the form validation and sanitization 
+    (req, res, next) => {
+
+        const errors = validationResult(req)
+
+        // Create a Book Object
+        const book = new Book({
+            title: req.body.title,
+            author: req.body.author,
+            summary: req.body.summary,
+            isbn: req.body.isbn,
+            genre: req.body.genre
+        })
+
+    }
     
 ]
 
