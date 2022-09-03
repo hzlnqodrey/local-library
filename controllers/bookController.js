@@ -97,7 +97,7 @@ exports.book_create_get = (req, res, next) => {
             Genre.find(callback)
         }
     },
-    (err, result) => {
+    (err, results) => {
         if ( err ) {
             return next(err)
         }
