@@ -123,7 +123,11 @@ exports.book_create_post = [
     body("title", "Title must not be empty")
         .trim()
         .isLength({ min: 1 })
-        .escape()
+        .escape(),
+    body("Summary", "Summary must not be empty")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
 ]
 
 // Display Book delete form on GET
