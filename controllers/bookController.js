@@ -117,7 +117,13 @@ exports.book_create_post = [
             req.body.genre = typeof req.body.genre === "undefined" ? [] : [req.body.genre]
         }
         next()
-    }
+    },
+
+    // Validation and Sanitization the fields.
+    body("title", "Title must not be empty")
+        .trim()
+        .isLength({ min: 1 })
+        .escape()
 ]
 
 // Display Book delete form on GET
