@@ -57,9 +57,24 @@ exports.bookinstance_create_get = (req, res, next) => {
 }
 
 // Handle BookInstance create form on POST.
-exports.bookinstance_create_post = (req, res) => {
-    res.send('BookInstance Create Post')
-}
+exports.bookinstance_create_post = [
+
+    // Validation and Sanitization the form fields first
+    body('book', "Book must be specified")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+    body('imprint', "Imprint must be specified")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+    body('status')
+        .escape(),
+    body('due_back', 'Invalid date')
+        .optional({ checkFalsy: true })
+        .isISO8601()
+        .toDate(),
+]
 
 // Display BookInstance delete form on GET.
 exports.bookinstance_delete_get = (req, res) => {
