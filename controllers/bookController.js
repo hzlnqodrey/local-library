@@ -136,6 +136,10 @@ exports.book_create_post = [
         .trim()
         .isLength({ min: 1 })
         .escape(),
+    body("genre.*") // use a wildcard (*) in the sanitizer to individually validate each of the genre array entries.
+        .escape(),
+
+    
 ]
 
 // Display Book delete form on GET
