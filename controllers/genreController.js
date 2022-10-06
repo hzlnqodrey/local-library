@@ -1,6 +1,6 @@
-const Genre = require('../models/genre')
-const Book = require('../models/book')
-const async = require('async')
+const Genre                      = require('../models/genre')
+const Book                       = require('../models/book')
+const async                      = require('async')
 
 // Validator
 const { body, validationResult } = require('express-validator')

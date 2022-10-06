@@ -1,5 +1,5 @@
-const BookInstance = require('../models/bookinstance')
-const Book = require('../models/book')
+const BookInstance               = require('../models/bookinstance')
+const Book                       = require('../models/book')
 
 const { body, validationResult } = require('express-validator')
 
